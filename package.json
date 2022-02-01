@@ -1,0 +1,32 @@
+{
+    "name": "language-python-fsm",
+    "displayName": "Python with FSM",
+    "description": "Syntax highlighting for Python with FSM extension.",
+    "version": "0.0.1",
+    "publisher": "warmar",
+    "engines": {
+        "vscode": "^1.15.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "python-fsm",
+                "aliases": [],
+                "extensions": [
+                    ".fsm"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "python-fsm",
+                "scopeName": "source.fsm",
+                "path": "./syntaxes/fsm.tmLanguage.json"
+            }
+        ]
+    }
+}
