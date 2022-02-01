@@ -1,5 +1,5 @@
 {
-	"information": "This grammar file was taken from https://github.com/microsoft/vscode/blob/main/extensions/python/syntaxes/MagicPython.tmLanguage.json. I have added only the #macro-declaration section.",
+	"information": "This grammar file was taken from https://github.com/microsoft/vscode/blob/main/extensions/python/syntaxes/MagicPython.tmLanguage.json. I have added only sections with prefix fsm-.",
 	"name": "Python with FSM",
 	"scopeName": "source.fsm",
 	"patterns": [
@@ -24,7 +24,7 @@
 					"include": "#class-declaration"
 				},
 				{
-					"include": "#macro-declaration"
+					"include": "#fsm-setup"
 				},
 				{
 					"include": "#function-declaration"
@@ -49,12 +49,42 @@
 				}
 			]
 		},
-		"macro-declaration": {
+		"fsm-setup": {
 			"patterns": [
 				{
-					"name": "meta.preprocessor.numeric.fsm.setup",
-					"begin": "\\$setup\\{",
-					"end": "\\}"
+					"begin": "(\\$setup)\\{",
+					"end": "\\}",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.fsm.setup"
+						}
+					},
+					"endCaptures": {},
+					"patterns": [
+						{
+							"include": "#fsm-transition"
+						},
+						{
+							"include": "#fsm-node-label"
+						},
+						{
+							"include": "#expression"
+						}
+					]
+				}
+			]
+		},
+		"fsm-node-label": {
+			"name": "entity.name.function.fsm.label",
+			"match": "\\s[a-z][a-zA-Z]+:"
+		},
+		"fsm-transition": {
+			"name": "keyword.control.fsm.transition",
+			"begin": "(\\=)",
+			"end": "(=>)",
+			"patterns": [
+				{
+					"include": "#expression"
 				}
 			]
 		},
