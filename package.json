@@ -2,7 +2,7 @@
     "name": "language-python-fsm",
     "displayName": "Python with FSM",
     "description": "Syntax highlighting for Python with FSM extension.",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "warmar",
     "engines": {
         "vscode": "^1.15.0"
