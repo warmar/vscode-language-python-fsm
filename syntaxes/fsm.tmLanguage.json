@@ -52,14 +52,13 @@
 		"fsm-setup": {
 			"patterns": [
 				{
-					"begin": "(\\$setup)\\{",
-					"end": "\\}",
-					"beginCaptures": {
+					"begin": "(\\$setup\\{)",
+					"end": "(\\})",
+					"captures": {
 						"1": {
 							"name": "keyword.fsm.setup"
 						}
 					},
-					"endCaptures": {},
 					"patterns": [
 						{
 							"include": "#fsm-transition"
@@ -76,11 +75,11 @@
 		},
 		"fsm-node-label": {
 			"name": "entity.name.function.fsm.label",
-			"match": "\\s[a-z][a-zA-Z]+:"
+			"match": "\\s[a-z][a-zA-Z]*:"
 		},
 		"fsm-transition": {
 			"name": "keyword.control.fsm.transition",
-			"begin": "(\\=)",
+			"begin": "(=)",
 			"end": "(=>)",
 			"patterns": [
 				{
